@@ -58,7 +58,7 @@ class SingleItem extends Component {
                                 from further down the chain.
                             */}
                             <Head>
-                                <title>Sick Fits | {item.title}</title>
+                                <title>React Store | {item.title}</title>
                             </Head>
                             <img src={item.largeImage} alt={item.title} />
                             <div className="details">
