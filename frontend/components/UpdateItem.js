@@ -44,7 +44,8 @@ class UpdateItem extends Component {
 
     updateItem = async (e, updateItemMutation) => {
         e.preventDefault();
-        console.log('Update ITem!!');
+        console.log(updateItemMutation);
+        console.log('Update Item!!');
         console.log(this.state);
         const res = await updateItemMutation({
             variables: {
@@ -52,7 +53,8 @@ class UpdateItem extends Component {
                 ...this.state
             }
         });
-        console.log('Updated');
+        // res contains data.updateItem key which refers to the callback function in updateItemMutation
+        console.log(res, 'Updated');
     };
 
     render() {
@@ -66,6 +68,7 @@ class UpdateItem extends Component {
                 {({ data, loading }) => {
                     if (loading) return <p>Loading...</p>;
                     if (!data.item) return <p>No Item Found for ID {this.props.id}</p>;
+                    console.log(this.state);
                     return (
                         // The only child of a Mutation or Query can be a function
                         <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
